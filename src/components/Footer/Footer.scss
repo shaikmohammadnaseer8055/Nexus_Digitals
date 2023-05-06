@@ -1,0 +1,90 @@
+@import "../../css-config/mixins.scss";
+
+.footer{
+    width: 100%;
+
+    .footer-content{
+        padding: 50px 20px;
+        max-width: 1200px;
+        margin: 0 auto; //with this the div gets centered
+        display: flex; //this will spread the divs in responsive layout structure without using any float or positioning
+        flex-flow: wrap; //by default the flex-flow will be set to nowrap
+        gap: 20px;
+        @include md{
+            justify-content: space-between;
+            padding: 50px 0;
+        }
+
+        //from here writing column css till now (above) was for row css
+
+        .col{
+            max-width: 300px; //300px * 4 = 1200px (total max width)
+
+            .title{
+                margin-bottom: 20px;
+                font-size: 20px;
+            }
+
+            .text {
+                color: rgba(0,0,0,0.5);
+                font-size: 15px;
+            }
+
+            .c-item{
+                display: flex;
+                margin-bottom: 10px;
+                svg {
+                    flex-shrink: 0; //The element will not shrink: it will retain the width it needs, and not wrap its content.
+                    font-size: 15px;
+                    margin-right: 10px;
+                    margin-top: 4px;
+                    color: rgba(0,0,0,0.5);                    
+                }
+            }
+
+            span{
+                &.text{
+                    display: block; //An element that has the display property set to block starts on a new line and takes up the available screen width. (Block: Displays an element as a block element. It starts on a new line and takes up take up as much horizontal space as they can. Block-level elements do not appear in the same line, but breaks the existing line and appear in the next line. Flex: Flex displays an element as a flexible structure.)
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+
+                &.text:hover{
+                    color: #8e2de2;
+                    transition: all ease 0.2s;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .bottom-bar{
+        border-top: 1px solid rgba(0,0,0,0.1);
+        .bottom-bar-content{
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+            @include md{
+                padding: 0;
+                height: 60px;
+                max-width: 1200px;
+                margin: 0 auto;
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+            .text{
+                font-size: 12px;
+                color: rgba(0,0,0,0.5);
+            }
+
+            .text:hover{
+                color: #8e2de2;
+                transition: all ease 0.3s;               
+            }
+        }
+    }
+}
